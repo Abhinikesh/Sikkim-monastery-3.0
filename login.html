@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Monastery360</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Dark overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5); /* dark overlay */
+    z-index: -1;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Background image */
+    background: url("public/Buddhabg.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+    color: white;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #ff6b35;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    background: #e65c28;
+  }
+
+  .toggle-text {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .toggle-text span {
+    color: #ffd700;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .error {
+    color: #ffdddd;
+    font-size: 14px;
+    margin-top: 10px;}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="form-title">Login</h2>
+
+    <!-- Email Input -->
+    <div class="input-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+    </div>
+
+    <!-- Password Input -->
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required>
+    </div>
+
+    <!-- Action Button -->
+    <button class="btn" id="submitBtn">Login</button>
+
+    <!-- Error Message -->
+    <p class="error" id="errorMsg"></p>
+
+    <!-- Toggle -->
+    <p class="toggle-text" id="toggleText">Don't have an account? <span id="toggleLink">Sign up</span></p>
+  </div>
+
+  <!-- Firebase Authentication -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    // ✅ Replace with your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCfhzfz4SbKW67dzRW7Yw-vVsNfUgYOCz0",
+      authDomain: "monastery-360.firebaseapp.com",
+      projectId: "monastery-360",
+      storageBucket: "monastery-360.firebasestorage.app",
+      messagingSenderId: "13437257499",
+      appId: "1:13437257499:web:f636de7575f845e72575be",
+      measurementId: "G-EV6Y9ZMG7R"
+
+    };
+
+    // ✅ Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Elements
+    const formTitle = document.getElementById("form-title");
+    const submitBtn = document.getElementById("submitBtn");
+    const toggleText = document.getElementById("toggleText");
+    const toggleLink = document.getElementById("toggleLink");
+    const errorMsg = document.getElementById("errorMsg");
+
+    let isLogin = true; // default mode = login
+
+// Toggle Login/Signup (Fixed)
+toggleLink.addEventListener("click", () => {
+  isLogin = !isLogin;
+  if (isLogin) {
+    formTitle.textContent = "Login";
+    submitBtn.textContent = "Login";
+    toggleText.innerHTML = `Don't have an account? <span id="toggleLink">Sign up</span>`
+  } else {
+    formTitle.textContent = "Sign Up";
+    submitBtn.textContent = "Sign Up";
+    toggleText.innerHTML = `Already have an account? <span id="toggleLink">Login</span>`
+  }
+
+  // ✅ Re-attach event listener every time after replacing innerHTML
+  document.getElementById("toggleLink").addEventListener("click", () => {
+    toggleLink.click();
+  });
+});
+    // Submit Button
+    submitBtn.addEventListener("click", async () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      errorMsg.textContent = "";
+
+      try {
+        if (isLogin) {
+          // Login
+          await signInWithEmailAndPassword(auth, email, password);
+          window.location.href = "index.html"; 
+        } else {
+          // Signup
+          await createUserWithEmailAndPassword(auth, email, password);
+          window.location.href = "index.html";
+        }
+      } catch (error) {
+        errorMsg.textContent = error.message;
+      }
+    });
+  </script>
+</body>
+</html>

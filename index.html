@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monastery – Explore Sikkim's Heritage</title>
+    <link rel="icon" type="image/png" href="public/logo.jpg">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/logo.jpg" alt="Monastery360 Logo">
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#featured-monasteries" class="nav-link">Featured Monasteries</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#cultural-calendar" class="nav-link">Cultural Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#explore" class="nav-link">Explore</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#shop" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#plan-visit" class="nav-link">Plan Your Visit</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link login-btn">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link signup-btn">Signup</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+     <div class="hero-video"></div>
+     <div class="hero-overlay"></div>
+     <div class="hero-content">
+       <h1 class="hero-title">Sikkim</h1>
+         <p class="hero-subtitle">Explore Sikkim's Sacred Heritage</p>
+         <p class="hero-description">Discover ancient monasteries, vibrant festivals, and the spiritual heart of the Himalayas</p>
+         <button class="cta-button">Begin Your Journey</button>
+     </div>
+       <div class="scroll-indicator">
+       <div class="scroll-arrow"></div>
+     </div>
+    </section>
+
+    <!-- Featured Monasteries Section -->
+    <section id="featured-monasteries" class="monasteries">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">360 VT of Monasteries</h2>
+                <p class="section-subtitle">Sacred spaces that have preserved Sikkim's spiritual heritage for centuries</p>
+            </div>
+            <div class="monasteries-grid">
+                <!-- Rumtek Monastery -->
+                <div class="monastery-card">
+                    <div class="monastery-video">
+                        <video poster="public/rumtek.jpeg" muted>
+                            <source src="#" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="monastery-content">
+                        <h3 class="monastery-title">Rumtek Monastery</h3>
+                        <p class="monastery-description">The largest monastery in Sikkim, known for its stunning architecture and spiritual significance as the seat of the Karmapa.</p>
+                        <button class="explore-btn" data-action="explore-360vt">Explore 360VT</button>
+                    </div>
+                </div>
+
+                <!-- Enchey Monastery -->
+                <div class="monastery-card">
+                    <div class="monastery-video">
+                        <video poster="public/enchey-monastery.jpg" muted>
+                            <source src="#" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="monastery-content">
+                        <h3 class="monastery-title">Enchey Monastery</h3>
+                        <p class="monastery-description">A 200-year-old monastery with beautiful murals and traditional architecture, offering panoramic views of Gangtok.</p>
+                        <button class="explore-btn" data-action="explore-360vt">Explore 360VT</button>
+                    </div>
+                </div>
+
+                <!-- Pemayangtse Monastery -->
+                <div class="monastery-card">
+                    <div class="monastery-video">
+                        <video poster="public/spiritual-spots-in-pelling-popular.jpeg" muted>
+                            <source src="#" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="monastery-content">
+                        <h3 class="monastery-title">Pemayangtse Monastery</h3>
+                        <p class="monastery-description">One of the oldest monasteries in Sikkim, famous for its intricate wood carvings and ancient Buddhist artifacts.</p>
+                        <button class="explore-btn" data-action="explore-360vt">Explore 360VT</button>
+                    </div>
+                </div>
+
+                <!-- Tashiding Monastery -->
+                <div class="monastery-card">
+                    <div class="monastery-video">
+                        <video poster="public/rumtek1.jpg" muted>
+                            <source src="#" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="monastery-content">
+                        <h3 class="monastery-title">Tashiding Monastery</h3>
+                        <p class="monastery-description">A sacred monastery known for its annual Bumchu festival and the holy water ceremony that attracts thousands of devotees.</p>
+                        <button class="explore-btn" data-action="explore-360vt">Explore 360VT</button>
+                    </div>
+                </div>
+
+                <!-- Phodong Monastery -->
+                <div class="monastery-card">
+                    <div class="monastery-video">
+                        <video poster="public/rumtek.jpeg" muted>
+                            <source src="#" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="monastery-content">
+                        <h3 class="monastery-title">Phodong Monastery</h3>
+                        <p class="monastery-description">A beautiful monastery with stunning murals and traditional architecture, offering a peaceful retreat for spiritual seekers.</p>
+                        <button class="explore-btn" data-action="explore-360vt">Explore 360VT</button>
+                    </div>
+                </div>
+
+                <!-- Phodong Monastery -->
+                <div class="monastery-card">
+                    <div class="monastery-video">
+                        <video poster="public/rumtek.jpeg" muted>
+                            <source src="#" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="monastery-content">
+                        <h3 class="monastery-title">Phodong Monastery</h3>
+                        <p class="monastery-description">A beautiful monastery with stunning murals and traditional architecture, offering a peaceful retreat for spiritual seekers.</p>
+                        <button class="explore-btn" data-action="explore-360vt">Explore 360VT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Featured Cultural Section -->
+    <section class="cultural-calendar section" id="cultural-calendar">
+      <div class="container">
+        <div class="section-header">
+        <h2 class="section-title">Cultural Calendar</h2>
+        <h4 class="section-subtitle">Experience the vibrant festivals and ceremonies throughout the year</h4>
+      </div>   
+
+      <div class="timeline-container">
+        <div class="timeline">
+        <!-- Item 1 -->
+         <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">March </div>
+            <h3 class="timeline-title">🎉 Losar Festival</h3>
+            <p class="timeline-description">
+              Tibetan New Year celebration with traditional dances, butter sculptures, and monastery ceremonies across Sikkim.
+            </p>
+          </div>
+         </div>
+
+        <!-- Item 2 -->
+         <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">May </div>
+            <h3 class="timeline-title">🕯️ Buddha Purnima</h3>
+            <p class="timeline-description">
+              Celebrating the birth of Buddha with spiritual gatherings, rituals, and prayers at all major monasteries.
+            </p>
+          </div>
+         </div>
+
+        <!-- Item 5 -->
+         <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">September</div>
+            <h3 class="timeline-title">🪔 Durga Puja</h3>
+            <p class="timeline-description">
+              Major Hindu festival marking victory of good over evil; worship of Goddess puja; Puja ceremonies; family gathering.
+            </p>
+          </div>
+         </div>
+
+        <!-- Item 4 -->
+         <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">November 2025</div>
+            <h3 class="timeline-title">🕯️ Cherry Tea Festival</h3>
+            <p class="timeline-description">
+              Celebrates the local cherry and teal culture; brewing, tasting, fairs; promoting local produce and tourism.
+            </p>
+          </div>
+         </div>
+
+        <!-- Item 5 -->
+         <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">December</div>
+            <h3 class="timeline-title">🕯️ Losoong/Namsoong</h3>
+            <p class="timeline-description">
+              Sikkimese New Year (Bhutia) / Lepcha new year; harvest festival; end of farming season; prayer, cultural performances, masked dances etc.
+            </p>
+          </div>
+         </div> 
+        </div>
+        
+        <div class="timeline-footer">
+          <a href="festivals.html" class="explore-festivals-btn">Explore more festivals and events</a>
+        </div>
+      
+    </section>
+
+
+    <!-- Explore Map Section -->
+    <section id="explore" class="explore-map">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Explore Sikkim</h2>
+                <p class="section-subtitle">Discover the sacred geography of Sikkim's monasteries and spiritual sites</p>
+            </div>
+            <div class="map-container">
+                <div id="map" class="map-placeholder">
+                    <div class="map-overlay">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Interactive Map Coming Soon</h3>
+                        <p>Explore monasteries, cultural sites, and spiritual landmarks across Sikkim</p>
+                    </div>
+                </div>
+                <div class="map-info-card">
+                    <div class="info-card-content">
+                        <h3>Rumtek Monastery</h3>
+                        <p>The largest and most important monastery in Sikkim, serving as the seat of the Karmapa. This architectural marvel houses ancient Buddhist scriptures, intricate murals, and offers breathtaking views of the surrounding mountains.</p>
+                        <button class="lets-go-btn" data-action="navigate-to-monastery">Let's go</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+
+    <section id="shop" class="shop">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop</h2>
+                <p class="section-subtitle">Discover authentic Sikkimese crafts, spiritual artifacts, and cultural treasures</p>
+            </div>
+
+            <div class="shop-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="public/prayer_wheel.jpg" alt="Prayer Wheel">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Traditional Prayer Wheel</h3>
+                        <p class="product-description">Handcrafted copper prayer wheel with intricate engravings and traditional mantras.</p>
+                        <div class="product-price">₹2,500</div>
+                        <button class="buy-btn" data-action="add-to-cart">Buy</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="public/Thangka_of_Buddha.webp" alt="Thangka Painting">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Thangka Painting</h3>
+                        <p class="product-description">Authentic Buddhist thangka painting depicting traditional deities and spiritual scenes.</p>
+                        <div class="product-price">₹5,000</div>
+                        <button class="buy-btn" data-action="add-to-cart">Buy</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="public/singing_bowl.jpg" alt="Singing Bowl">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Tibetan Singing Bowl</h3>
+                        <p class="product-description">Hand-hammered brass singing bowl for meditation and spiritual practice.</p>
+                        <div class="product-price">₹3,200</div>
+                        <button class="buy-btn" data-action="add-to-cart">Buy</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="public/prayer_flag.webp" alt="Prayer Flags">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Prayer Flags Set</h3>
+                        <p class="product-description">Colorful prayer flags with traditional mantras and blessings for your home.</p>
+                        <div class="product-price">₹800</div>
+                        <button class="buy-btn" data-action="add-to-cart">Buy</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="public/mala.webp" alt="Mala Beads">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Rudraksha Mala</h3>
+                        <p class="product-description">Sacred rudraksha beads strung into a traditional 108-bead mala for meditation.</p>
+                        <div class="product-price">₹1,500</div>
+                        <button class="buy-btn" data-action="add-to-cart">Buy</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="public/insence.jpg" alt="Incense">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Tibetan Incense</h3>
+                        <p class="product-description">Traditional Tibetan incense made from natural herbs and spices for spiritual purification.</p>
+                        <div class="product-price">₹600</div>
+                        <button class="buy-btn" data-action="add-to-cart">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Gallery</h2>
+                <p class="section-subtitle">"Experience the spirit of Sikkim in every frame."</p>
+                <p class="gallery-description">Step into the vibrant heritage of Sikkim through manuscripts, art, dance, and rituals. This digital gallery preserves timeless traditions while offering an immersive cultural journey for explorers, learners, and seekers.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-type="image">
+                    <img src="public/manuscript.jpg" alt="Ancient Buddhist Manuscript" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-type="video">
+                    <video poster="public/culturaldance.jpg" muted class="gallery-video">
+                        <source src="#" type="video/mp4">
+                    </video>
+                    <div class="gallery-overlay">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-type="image">
+                    <img src="public/folkartpaint.jpg" alt="Traditional Folk Art" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-type="video">
+                    <video poster="public/enchey-monastery-traditional-dance.jpg" muted class="gallery-video">
+                        <source src="#" type="video/mp4">
+                    </video>
+                    <div class="gallery-overlay">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-type="image">
+                    <img src="public/Buddhabg.jpg" alt="Buddha Statue" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-type="image">
+                    <img src="public/night2.jpg" alt="Monastery at Night" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-type="video">
+                    <video poster="public/night3.webp" muted class="gallery-video">
+                        <source src="#" type="video/mp4">
+                    </video>
+                    <div class="gallery-overlay">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-type="image">
+                    <img src="public/rumtek.jpeg" alt="Rumtek Monastery" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-type="image">
+                    <img src="public/landscape.jpg" alt="Rumtek Monastery" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Plan Your Visit Section -->
+    <section id="plan-visit" class="plan-visit">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Plan Your Visit</h2>
+                <p class="section-subtitle">Everything you need to know for an unforgettable journey</p>
+            </div>
+            <div class="plan-grid">
+                <div class="plan-card" style="background-image: url('public/travel_tips.jpeg')">
+                    <div class="plan-overlay"></div>
+                    <div class="plan-content">
+                        <div class="plan-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Travel Tips</h3>
+                        <p>Essential information for visiting Sikkim's monasteries and cultural sites</p>
+                        <a href="travel-tips.html" class="plan-button">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="plan-card" style="background-image: url('public/cuisine.jpeg')">
+                    <div class="plan-overlay"></div>
+                    <div class="plan-content">
+                        <div class="plan-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Local Cuisine</h3>
+                        <p>Discover authentic Sikkimese flavors and traditional monastery meals</p>
+                        <a href="cuisine.html" class="plan-button">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="plan-card" style="background-image: url('public/accombidation.jpg')">
+                    <div class="plan-overlay"></div>
+                    <div class="plan-content">
+                        <div class="plan-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <h3>Accommodation</h3>
+                        <p>Find the perfect place to stay near monasteries and cultural sites</p>
+                        <a href="accommodation.html" class="plan-button">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Monastery360</h3>
+                    <p>Preserving and sharing Sikkim's rich monastic heritage with the world</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" data-action="social-fb"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link" data-action="social-ig"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" data-action="social-twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" data-action="social-yt"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#featured-monasteries">Featured Monasteries</a></li>
+                        <li><a href="#cultural-calendar">Cultural Calendar</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                        <li><a href="#explore">Explore</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#plan-visit">Plan Your Visit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Plan Your Visit</h4>
+                    <ul class="footer-links">
+                        <li><a href="travel-tips.html">Travel Tips</a></li>
+                        <li><a href="cuisine.html">Local Cuisine</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="login.html">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@monastery360.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Gangtok, Sikkim, India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Monastery360. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" id="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script src="script.js"></script>
+
+
+
+</body>
+</html>
