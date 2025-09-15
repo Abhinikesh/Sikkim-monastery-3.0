@@ -57,6 +57,49 @@ function hideModal(modal) {
 }
 
 // ============================================================================
+// NARRATION AUDIO FUNCTIONALITY
+// ============================================================================
+
+// Get narration audio source based on monastery and language
+function getNarrationAudioSrc(monasteryName, language) {
+  // Placeholder audio files - replace with actual audio files later
+  const audioFiles = {
+    'Rumtek Monastery': {
+      english: 'public/audio/rumtek-english.mp3',
+      hindi: 'public/audio/rumtek-hindi.mp3',
+      nepali: 'public/audio/rumtek-nepali.mp3',
+      tibetan: 'public/audio/rumtek-tibetan.mp3'
+    },
+    'Enchey Monastery': {
+      english: 'public/audio/enchey-english.mp3',
+      hindi: 'public/audio/enchey-hindi.mp3',
+      nepali: 'public/audio/enchey-nepali.mp3',
+      tibetan: 'public/audio/enchey-tibetan.mp3'
+    },
+    'Pemayangtse Monastery': {
+      english: 'public/audio/pemayangtse-english.mp3',
+      hindi: 'public/audio/pemayangtse-hindi.mp3',
+      nepali: 'public/audio/pemayangtse-nepali.mp3',
+      tibetan: 'public/audio/pemayangtse-tibetan.mp3'
+    },
+    'Tashiding Monastery': {
+      english: 'public/audio/tashiding-english.mp3',
+      hindi: 'public/audio/tashiding-hindi.mp3',
+      nepali: 'public/audio/tashiding-nepali.mp3',
+      tibetan: 'public/audio/tashiding-tibetan.mp3'
+    },
+    'Phodong Monastery': {
+      english: 'public/audio/phodong-english.mp3',
+      hindi: 'public/audio/phodong-hindi.mp3',
+      nepali: 'public/audio/phodong-nepali.mp3',
+      tibetan: 'public/audio/phodong-tibetan.mp3'
+    }
+  };
+  
+  return audioFiles[monasteryName]?.[language] || null;
+}
+
+// ============================================================================
 // VIDEO FUNCTIONALITY
 // ============================================================================
 
@@ -104,10 +147,41 @@ function initVideos() {
             </video>
             <h3>${title}</h3>
             <p>Experience the 360° virtual tour of ${title}</p>
+            <div class="narration-controls">
+              <label for="narration-language">Select Narration Language:</label>
+              <select id="narration-language" class="language-selector">
+                <option value="english">English</option>
+                <option value="hindi">हिन्दी (Hindi)</option>
+                <option value="nepali">नेपाली (Nepali)</option>
+                <option value="tibetan">བོད་ཡིག (Tibetan)</option>
+              </select>
+              <audio id="narration-audio" controls style="display: none;">
+                <source src="#" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
           </div>
         `, 'video-modal');
         
         showModal(videoModal);
+        
+        // Handle language selection and audio playback
+        const languageSelector = videoModal.querySelector('#narration-language');
+        const audioElement = videoModal.querySelector('#narration-audio');
+        
+        languageSelector.addEventListener('change', (e) => {
+          const selectedLanguage = e.target.value;
+          const audioSrc = getNarrationAudioSrc(title, selectedLanguage);
+          
+          if (audioSrc) {
+            audioElement.querySelector('source').src = audioSrc;
+            audioElement.load();
+            audioElement.style.display = 'block';
+            audioElement.play().catch(e => console.log('Audio autoplay prevented:', e));
+          } else {
+            audioElement.style.display = 'none';
+          }
+        });
         
         // Handle modal close
         videoModal.querySelector('.modal-close').addEventListener('click', () => {
@@ -214,6 +288,34 @@ function initMap() {
         <button class="lets-go-btn" data-lat="${monastery.lat}" data-lng="${monastery.lng}">
           Let's go
         </button>
+        <div class="transport-options">
+          <h4>Local Transport Options</h4>
+          <div class="transport-list">
+            <div class="transport-item">
+              <i class="fas fa-bus"></i>
+              <span>Bus</span>
+              <span class="transport-details">₹50-100 • 30-45 min</span>
+            </div>
+            <div class="transport-item">
+              <i class="fas fa-taxi"></i>
+              <span>Taxi</span>
+              <span class="transport-details">₹300-500 • 20-30 min</span>
+            </div>
+            <div class="transport-item">
+              <i class="fas fa-car"></i>
+              <span>Shared Cab</span>
+              <span class="transport-details">₹150-250 • 25-35 min</span>
+            </div>
+            <div class="transport-item">
+              <i class="fas fa-motorcycle"></i>
+              <span>Bike Rental</span>
+              <span class="transport-details">₹200-400/day • 15-25 min</span>
+            </div>
+          </div>
+          <button class="book-transport-btn" data-monastery="${monastery.name}">
+            Book Transport
+          </button>
+        </div>
       </div>
     `);
   });
@@ -226,6 +328,15 @@ function initMap() {
         const lat = letsGoBtn.dataset.lat;
         const lng = letsGoBtn.dataset.lng;
         openGoogleMapsDirections(lat, lng);
+      });
+    }
+    
+    // Handle "Book Transport" button clicks
+    const bookTransportBtn = document.querySelector('.book-transport-btn');
+    if (bookTransportBtn) {
+      bookTransportBtn.addEventListener('click', () => {
+        const monasteryName = bookTransportBtn.dataset.monastery;
+        openTransportBooking(monasteryName);
       });
     }
   });
@@ -268,6 +379,12 @@ function openGoogleMapsDirections(lat, lng) {
     const url = `https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=${lat},${lng}`;
     window.open(url, '_blank');
   }
+}
+
+// Open transport booking page
+function openTransportBooking(monasteryName) {
+  // For now, redirect to transport page with monastery parameter
+  window.location.href = `transport.html?monastery=${encodeURIComponent(monasteryName)}`;
 }
 
 // ============================================================================
@@ -461,6 +578,48 @@ function initCulturalCalendar() {
       window.location.href = 'festivals.html';
     });
   }
+
+  // Handle calendar filtering
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // Filter timeline items
+      const filter = button.dataset.filter;
+      
+      timelineItems.forEach(item => {
+        if (filter === 'all') {
+          item.style.display = 'block';
+          item.classList.add('animate');
+        } else {
+          const itemType = item.dataset.type;
+          if (itemType === filter) {
+            item.style.display = 'block';
+            item.classList.add('animate');
+          } else {
+            item.style.display = 'none';
+            item.classList.remove('animate');
+          }
+        }
+      });
+
+      // Update "Explore more" button text based on filter
+      if (exploreFestivalsBtn) {
+        if (filter === 'rituals') {
+          exploreFestivalsBtn.textContent = 'Explore more rituals and ceremonies';
+        } else if (filter === 'festivals') {
+          exploreFestivalsBtn.textContent = 'Explore more festivals and events';
+        } else {
+          exploreFestivalsBtn.textContent = 'Explore more festivals and events';
+        }
+      }
+    });
+  });
 }
 
 // ============================================================================
@@ -639,6 +798,280 @@ function initHeroCTA() {
 }
 
 // ============================================================================
+// GLOBAL SEARCH FUNCTIONALITY
+// ============================================================================
+
+// Search data - placeholder dataset
+const searchData = {
+  monasteries: [
+    {
+      id: 'rumtek',
+      title: 'Rumtek Monastery',
+      description: 'The largest monastery in Sikkim, known for its stunning architecture and spiritual significance as the seat of the Karmapa.',
+      category: 'Monastery',
+      icon: 'fas fa-place-of-worship',
+      url: '#featured-monasteries'
+    },
+    {
+      id: 'enchey',
+      title: 'Enchey Monastery',
+      description: 'A 200-year-old monastery with beautiful murals and traditional architecture, offering panoramic views of Gangtok.',
+      category: 'Monastery',
+      icon: 'fas fa-place-of-worship',
+      url: '#featured-monasteries'
+    },
+    {
+      id: 'pemayangtse',
+      title: 'Pemayangtse Monastery',
+      description: 'One of the oldest monasteries in Sikkim, famous for its intricate wood carvings and ancient Buddhist artifacts.',
+      category: 'Monastery',
+      icon: 'fas fa-place-of-worship',
+      url: '#featured-monasteries'
+    },
+    {
+      id: 'tashiding',
+      title: 'Tashiding Monastery',
+      description: 'A sacred monastery known for its annual Bumchu festival and the holy water ceremony.',
+      category: 'Monastery',
+      icon: 'fas fa-place-of-worship',
+      url: '#featured-monasteries'
+    },
+    {
+      id: 'phodong',
+      title: 'Phodong Monastery',
+      description: 'A beautiful monastery with stunning murals and traditional architecture, offering a peaceful retreat.',
+      category: 'Monastery',
+      icon: 'fas fa-place-of-worship',
+      url: '#featured-monasteries'
+    }
+  ],
+  festivals: [
+    {
+      id: 'losar',
+      title: 'Losar Festival',
+      description: 'Tibetan New Year celebration with traditional dances, butter sculptures, and monastery ceremonies.',
+      category: 'Festival',
+      icon: 'fas fa-calendar-alt',
+      url: '#cultural-calendar'
+    },
+    {
+      id: 'buddha-purnima',
+      title: 'Buddha Purnima',
+      description: 'Celebrating the birth of Buddha with spiritual gatherings, rituals, and prayers at all major monasteries.',
+      category: 'Festival',
+      icon: 'fas fa-calendar-alt',
+      url: '#cultural-calendar'
+    },
+    {
+      id: 'durga-puja',
+      title: 'Durga Puja',
+      description: 'Major Hindu festival marking victory of good over evil with worship ceremonies and family gatherings.',
+      category: 'Festival',
+      icon: 'fas fa-calendar-alt',
+      url: '#cultural-calendar'
+    },
+    {
+      id: 'cherry-tea-festival',
+      title: 'Cherry Tea Festival',
+      description: 'Celebrates the local cherry and tea culture with brewing, tasting, and fairs promoting local produce.',
+      category: 'Festival',
+      icon: 'fas fa-calendar-alt',
+      url: '#cultural-calendar'
+    }
+  ],
+  archives: [
+    {
+      id: 'buddhist-manuscript',
+      title: 'Ancient Buddhist Manuscript',
+      description: 'Sacred Buddhist texts written in traditional Tibetan script, dating back to the 17th century.',
+      category: 'Archive',
+      icon: 'fas fa-scroll',
+      url: 'archives.html'
+    },
+    {
+      id: 'thangka-manuscript',
+      title: 'Buddhist Thangka Manuscript',
+      description: 'Illustrated manuscript depicting Buddhist deities and teachings, created in the 19th century.',
+      category: 'Archive',
+      icon: 'fas fa-scroll',
+      url: 'archives.html'
+    },
+    {
+      id: 'mural-art',
+      title: 'Traditional Mural Art',
+      description: 'Intricate wall paintings depicting Buddhist cosmology and local folklore from ancient times.',
+      category: 'Archive',
+      icon: 'fas fa-palette',
+      url: 'archives.html'
+    },
+    {
+      id: 'foundation-document',
+      title: 'Monastery Foundation Document',
+      description: 'Official document establishing the monastery\'s foundation and land grants from the 19th century.',
+      category: 'Archive',
+      icon: 'fas fa-file-alt',
+      url: 'archives.html'
+    }
+  ],
+  products: [
+    {
+      id: 'prayer-wheel',
+      title: 'Traditional Prayer Wheel',
+      description: 'Handcrafted copper prayer wheel with intricate engravings and traditional mantras.',
+      category: 'Product',
+      icon: 'fas fa-shopping-cart',
+      url: '#shop'
+    },
+    {
+      id: 'thangka-painting',
+      title: 'Thangka Painting',
+      description: 'Authentic Buddhist thangka painting depicting traditional deities and spiritual scenes.',
+      category: 'Product',
+      icon: 'fas fa-shopping-cart',
+      url: '#shop'
+    },
+    {
+      id: 'singing-bowl',
+      title: 'Tibetan Singing Bowl',
+      description: 'Hand-hammered brass singing bowl for meditation and spiritual practice.',
+      category: 'Product',
+      icon: 'fas fa-shopping-cart',
+      url: '#shop'
+    },
+    {
+      id: 'prayer-flags',
+      title: 'Prayer Flags Set',
+      description: 'Colorful prayer flags with traditional mantras and blessings for your home.',
+      category: 'Product',
+      icon: 'fas fa-shopping-cart',
+      url: '#shop'
+    }
+  ]
+};
+
+// Initialize global search
+function initGlobalSearch() {
+  console.log('Initializing global search functionality...');
+  
+  const searchInput = document.getElementById('global-search');
+  const suggestionsContainer = document.getElementById('search-suggestions');
+  
+  if (!searchInput || !suggestionsContainer) return;
+  
+  let searchTimeout;
+  
+  // Handle search input
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.trim();
+    
+    clearTimeout(searchTimeout);
+    
+    if (query.length < 2) {
+      suggestionsContainer.classList.remove('show');
+      return;
+    }
+    
+    searchTimeout = setTimeout(() => {
+      performSearch(query, suggestionsContainer);
+    }, 300);
+  });
+  
+  // Handle search input focus
+  searchInput.addEventListener('focus', () => {
+    if (searchInput.value.trim().length >= 2) {
+      suggestionsContainer.classList.add('show');
+    }
+  });
+  
+  // Hide suggestions when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+      suggestionsContainer.classList.remove('show');
+    }
+  });
+  
+  // Handle search input keydown
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const query = searchInput.value.trim();
+      if (query.length >= 2) {
+        redirectToSearchPage(query);
+      }
+    } else if (e.key === 'Escape') {
+      suggestionsContainer.classList.remove('show');
+    }
+  });
+}
+
+// Perform search and show suggestions
+function performSearch(query, container) {
+  const results = searchAllData(query);
+  displaySuggestions(results, container);
+}
+
+// Search all data
+function searchAllData(query) {
+  const allData = [
+    ...searchData.monasteries,
+    ...searchData.festivals,
+    ...searchData.archives,
+    ...searchData.products
+  ];
+  
+  const lowerQuery = query.toLowerCase();
+  
+  return allData.filter(item => 
+    item.title.toLowerCase().includes(lowerQuery) ||
+    item.description.toLowerCase().includes(lowerQuery) ||
+    item.category.toLowerCase().includes(lowerQuery)
+  ).slice(0, 8); // Limit to 8 results
+}
+
+// Display search suggestions
+function displaySuggestions(results, container) {
+  if (results.length === 0) {
+    container.innerHTML = '<div class="suggestion-item"><p>No results found</p></div>';
+  } else {
+    container.innerHTML = results.map(item => `
+      <div class="suggestion-item" data-url="${item.url}">
+        <i class="suggestion-icon ${item.icon}"></i>
+        <div class="suggestion-content">
+          <h4>${item.title}</h4>
+          <p>${item.description}</p>
+        </div>
+        <span class="suggestion-category">${item.category}</span>
+      </div>
+    `).join('');
+    
+    // Add click handlers to suggestions
+    container.querySelectorAll('.suggestion-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const url = item.dataset.url;
+        if (url.startsWith('#')) {
+          // Internal anchor link
+          const target = document.querySelector(url);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          // External page
+          window.location.href = url;
+        }
+        container.classList.remove('show');
+      });
+    });
+  }
+  
+  container.classList.add('show');
+}
+
+// Redirect to search page
+function redirectToSearchPage(query) {
+  window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+}
+
+// ============================================================================
 // INITIALIZATION
 // ============================================================================
 
@@ -659,6 +1092,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations();
   initParallax();
   initHeroCTA();
+  initGlobalSearch();
   
   // Add loading animation
   document.body.style.opacity = '0';

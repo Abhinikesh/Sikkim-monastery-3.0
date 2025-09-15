@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Archives - Monastery360</title>
+    <link rel="icon" type="image/png" href="public/logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/logo.jpg" alt="Monastery360 Logo">
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#featured-monasteries" class="nav-link">Featured Monasteries</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#cultural-calendar" class="nav-link">Cultural Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#explore" class="nav-link">Explore</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#shop" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#gallery" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#plan-visit" class="nav-link">Plan Your Visit</a></li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link login-btn">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link signup-btn">Signup</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Digital Archives</h1>
+            <p class="page-subtitle">Explore Sikkim's rich cultural heritage through digitized manuscripts, murals, and historical documents</p>
+        </div>
+    </section>
+
+    <!-- Archives Section -->
+    <section class="content-section">
+        <div class="container">
+            <!-- Search and Filter Controls -->
+            <div class="archives-controls">
+                <div class="search-box">
+                    <input type="text" id="archive-search" placeholder="Search archives..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="filter-controls">
+                    <select id="category-filter" class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="manuscripts">Manuscripts</option>
+                        <option value="murals">Murals</option>
+                        <option value="historical">Historical Documents</option>
+                    </select>
+                    <select id="year-filter" class="filter-select">
+                        <option value="">All Years</option>
+                        <option value="pre-1800">Pre-1800</option>
+                        <option value="1800-1900">1800-1900</option>
+                        <option value="1900-1950">1900-1950</option>
+                        <option value="1950-2000">1950-2000</option>
+                        <option value="2000+">2000+</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Archives Grid -->
+            <div class="archives-grid" id="archives-grid">
+                <!-- Manuscripts -->
+                <div class="archive-card" data-category="manuscripts" data-year="pre-1800">
+                    <div class="archive-image">
+                        <img src="public/manuscript.jpg" alt="Ancient Buddhist Manuscript">
+                        <div class="archive-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="archive-content">
+                        <h3>Ancient Buddhist Manuscript</h3>
+                        <p class="archive-category">Manuscripts</p>
+                        <p class="archive-description">Sacred Buddhist texts written in traditional Tibetan script, dating back to the 17th century.</p>
+                        <div class="archive-meta">
+                            <span class="archive-year">Pre-1800</span>
+                            <span class="archive-monastery">Rumtek Monastery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="archive-card" data-category="manuscripts" data-year="1800-1900">
+                    <div class="archive-image">
+                        <img src="public/Thangka_of_Buddha.webp" alt="Buddhist Thangka Manuscript">
+                        <div class="archive-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="archive-content">
+                        <h3>Buddhist Thangka Manuscript</h3>
+                        <p class="archive-category">Manuscripts</p>
+                        <p class="archive-description">Illustrated manuscript depicting Buddhist deities and teachings, created in the 19th century.</p>
+                        <div class="archive-meta">
+                            <span class="archive-year">1800-1900</span>
+                            <span class="archive-monastery">Enchey Monastery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Murals -->
+                <div class="archive-card" data-category="murals" data-year="pre-1800">
+                    <div class="archive-image">
+                        <img src="public/folkartpaint.jpg" alt="Traditional Mural Art">
+                        <div class="archive-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="archive-content">
+                        <h3>Traditional Mural Art</h3>
+                        <p class="archive-category">Murals</p>
+                        <p class="archive-description">Intricate wall paintings depicting Buddhist cosmology and local folklore from ancient times.</p>
+                        <div class="archive-meta">
+                            <span class="archive-year">Pre-1800</span>
+                            <span class="archive-monastery">Pemayangtse Monastery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="archive-card" data-category="murals" data-year="1900-1950">
+                    <div class="archive-image">
+                        <img src="public/Buddhabg.jpg" alt="Buddha Mural">
+                        <div class="archive-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="archive-content">
+                        <h3>Buddha Mural</h3>
+                        <p class="archive-category">Murals</p>
+                        <p class="archive-description">Large-scale mural painting of Buddha in meditation pose, created in the early 20th century.</p>
+                        <div class="archive-meta">
+                            <span class="archive-year">1900-1950</span>
+                            <span class="archive-monastery">Tashiding Monastery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historical Documents -->
+                <div class="archive-card" data-category="historical" data-year="1800-1900">
+                    <div class="archive-image">
+                        <img src="public/rumtek.jpeg" alt="Monastery Foundation Document">
+                        <div class="archive-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="archive-content">
+                        <h3>Monastery Foundation Document</h3>
+                        <p class="archive-category">Historical Documents</p>
+                        <p class="archive-description">Official document establishing the monastery's foundation and land grants from the 19th century.</p>
+                        <div class="archive-meta">
+                            <span class="archive-year">1800-1900</span>
+                            <span class="archive-monastery">Rumtek Monastery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="archive-card" data-category="historical" data-year="1900-1950">
+                    <div class="archive-image">
+                        <img src="public/enchey-monastery.jpg" alt="Cultural Heritage Certificate">
+                        <div class="archive-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="archive-content">
+                        <h3>Cultural Heritage Certificate</h3>
+                        <p class="archive-category">Historical Documents</p>
+                        <p class="archive-description">Certificate recognizing the monastery's cultural significance and heritage status.</p>
+                        <div class="archive-meta">
+                            <span class="archive-year">1900-1950</span>
+                            <span class="archive-monastery">Enchey Monastery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="archive-card" data-category="manuscripts" data-year="1950-2000">
+                    <div class="archive-image">
+                        <img src="public/prayer_wheel.jpg" alt="Prayer Wheel Manual">
+                        <div class="archive-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="archive-content">
+                        <h3>Prayer Wheel Manual</h3>
+                        <p class="archive-category">Manuscripts</p>
+                        <p class="archive-description">Instructional manuscript on the proper use and significance of prayer wheels in Buddhist practice.</p>
+                        <div class="archive-meta">
+                            <span class="archive-year">1950-2000</span>
+                            <span class="archive-monastery">Phodong Monastery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="archive-card" data-category="murals" data-year="2000+">
+                    <div class="archive-image">
+                        <img src="public/landscape.jpg" alt="Modern Mural Art">
+                        <div class="archive-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="archive-content">
+                        <h3>Modern Mural Art</h3>
+                        <p class="archive-category">Murals</p>
+                        <p class="archive-description">Contemporary mural combining traditional techniques with modern artistic expression.</p>
+                        <div class="archive-meta">
+                            <span class="archive-year">2000+</span>
+                            <span class="archive-monastery">Various Monasteries</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Results Message -->
+            <div class="no-results" id="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No Archives Found</h3>
+                <p>Try adjusting your search criteria or filters to find what you're looking for.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Monastery360</h3>
+                    <p>Preserving and sharing Sikkim's rich monastic heritage with the world</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" data-action="social-fb"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link" data-action="social-ig"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" data-action="social-twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" data-action="social-yt"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#featured-monasteries">Featured Monasteries</a></li>
+                        <li><a href="index.html#cultural-calendar">Cultural Calendar</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                        <li><a href="index.html#explore">Explore</a></li>
+                        <li><a href="index.html#shop">Shop</a></li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li><a href="index.html#plan-visit">Plan Your Visit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Plan Your Visit</h4>
+                    <ul class="footer-links">
+                        <li><a href="travel-tips.html">Travel Tips</a></li>
+                        <li><a href="cuisine.html">Local Cuisine</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                        <li><a href="transport.html">Transport</a></li>
+                        <li><a href="archives.html">Digital Archives</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="login.html">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@monastery360.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Gangtok, Sikkim, India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Monastery360. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" id="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script>
+        // Digital Archives page specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('archive-search');
+            const categoryFilter = document.getElementById('category-filter');
+            const yearFilter = document.getElementById('year-filter');
+            const archivesGrid = document.getElementById('archives-grid');
+            const noResults = document.getElementById('no-results');
+            const archiveCards = document.querySelectorAll('.archive-card');
+
+            // Filter and search functionality
+            function filterArchives() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categoryFilter.value;
+                const selectedYear = yearFilter.value;
+                
+                let visibleCount = 0;
+
+                archiveCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('.archive-description').textContent.toLowerCase();
+                    const category = card.dataset.category;
+                    const year = card.dataset.year;
+                    
+                    const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                    const matchesCategory = !selectedCategory || category === selectedCategory;
+                    const matchesYear = !selectedYear || year === selectedYear;
+                    
+                    if (matchesSearch && matchesCategory && matchesYear) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Show/hide no results message
+                if (visibleCount === 0) {
+                    noResults.style.display = 'block';
+                    archivesGrid.style.display = 'none';
+                } else {
+                    noResults.style.display = 'none';
+                    archivesGrid.style.display = 'grid';
+                }
+            }
+
+            // Event listeners
+            searchInput.addEventListener('input', filterArchives);
+            categoryFilter.addEventListener('change', filterArchives);
+            yearFilter.addEventListener('change', filterArchives);
+
+            // Archive card click handler for modal preview
+            archiveCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const title = this.querySelector('h3').textContent;
+                    const category = this.querySelector('.archive-category').textContent;
+                    const description = this.querySelector('.archive-description').textContent;
+                    const year = this.querySelector('.archive-year').textContent;
+                    const monastery = this.querySelector('.archive-monastery').textContent;
+                    const imageSrc = this.querySelector('img').src;
+                    
+                    // Create modal content
+                    const modalContent = `
+                        <div class="archive-modal">
+                            <div class="archive-modal-image">
+                                <img src="${imageSrc}" alt="${title}">
+                            </div>
+                            <div class="archive-modal-content">
+                                <h3>${title}</h3>
+                                <div class="archive-modal-meta">
+                                    <span class="archive-category">${category}</span>
+                                    <span class="archive-year">${year}</span>
+                                    <span class="archive-monastery">${monastery}</span>
+                                </div>
+                                <p class="archive-modal-description">${description}</p>
+                                <div class="archive-modal-actions">
+                                    <button class="btn-primary" onclick="downloadArchive('${title}')">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn-secondary" onclick="shareArchive('${title}')">
+                                        <i class="fas fa-share"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Show modal (using existing modal system)
+                    const modal = createModal(modalContent, 'archive-modal');
+                    showModal(modal);
+                    
+                    // Handle modal close
+                    modal.querySelector('.modal-close').addEventListener('click', () => {
+                        hideModal(modal);
+                    });
+                });
+            });
+        });
+
+        // Download archive function
+        function downloadArchive(title) {
+            alert(`Download functionality would be implemented here for: ${title}`);
+        }
+
+        // Share archive function
+        function shareArchive(title) {
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: `Check out this archive from Monastery360: ${title}`,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback to copying URL
+                navigator.clipboard.writeText(window.location.href);
+                alert('Archive link copied to clipboard!');
+            }
+        }
+    </script>
+</body>
+</html>

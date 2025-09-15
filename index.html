@@ -41,12 +41,22 @@
                     <a href="#plan-visit" class="nav-link">Plan Your Visit</a>
                 </li>
                 <li class="nav-item">
+                    <a href="archives.html" class="nav-link">Archives</a>
+                </li>
+                <li class="nav-item">
                     <a href="login.html" class="nav-link login-btn">Login</a>
                 </li>
                 <li class="nav-item">
                     <a href="login.html" class="nav-link signup-btn">Signup</a>
                 </li>
             </ul>
+            <div class="nav-search">
+                <div class="search-container">
+                    <input type="text" id="global-search" placeholder="Search monasteries, festivals, archives..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                    <div class="search-suggestions" id="search-suggestions"></div>
+                </div>
+            </div>
             <div class="nav-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -190,12 +200,19 @@
         <div class="section-header">
         <h2 class="section-title">Cultural Calendar</h2>
         <h4 class="section-subtitle">Experience the vibrant festivals and ceremonies throughout the year</h4>
+        
+        <!-- Filter Toggle -->
+        <div class="calendar-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="festivals">Festivals</button>
+          <button class="filter-btn" data-filter="rituals">Rituals</button>
+        </div>
       </div>   
 
       <div class="timeline-container">
         <div class="timeline">
-        <!-- Item 1 -->
-         <div class="timeline-item">
+        <!-- Festival Items -->
+         <div class="timeline-item" data-type="festivals">
           <div class="timeline-content">
             <div class="timeline-date">March </div>
             <h3 class="timeline-title">🎉 Losar Festival</h3>
@@ -205,8 +222,7 @@
           </div>
          </div>
 
-        <!-- Item 2 -->
-         <div class="timeline-item">
+         <div class="timeline-item" data-type="festivals">
           <div class="timeline-content">
             <div class="timeline-date">May </div>
             <h3 class="timeline-title">🕯️ Buddha Purnima</h3>
@@ -216,8 +232,7 @@
           </div>
          </div>
 
-        <!-- Item 5 -->
-         <div class="timeline-item">
+         <div class="timeline-item" data-type="festivals">
           <div class="timeline-content">
             <div class="timeline-date">September</div>
             <h3 class="timeline-title">🪔 Durga Puja</h3>
@@ -227,8 +242,7 @@
           </div>
          </div>
 
-        <!-- Item 4 -->
-         <div class="timeline-item">
+         <div class="timeline-item" data-type="festivals">
           <div class="timeline-content">
             <div class="timeline-date">November 2025</div>
             <h3 class="timeline-title">🕯️ Cherry Tea Festival</h3>
@@ -238,13 +252,53 @@
           </div>
          </div>
 
-        <!-- Item 5 -->
-         <div class="timeline-item">
+         <div class="timeline-item" data-type="festivals">
           <div class="timeline-content">
             <div class="timeline-date">December</div>
             <h3 class="timeline-title">🕯️ Losoong/Namsoong</h3>
             <p class="timeline-description">
               Sikkimese New Year (Bhutia) / Lepcha new year; harvest festival; end of farming season; prayer, cultural performances, masked dances etc.
+            </p>
+          </div>
+         </div>
+
+        <!-- Ritual Items -->
+         <div class="timeline-item" data-type="rituals">
+          <div class="timeline-content">
+            <div class="timeline-date">Daily</div>
+            <h3 class="timeline-title">🕯️ Morning Prayers</h3>
+            <p class="timeline-description">
+              Daily morning prayer rituals at all monasteries, including chanting, meditation, and offering ceremonies.
+            </p>
+          </div>
+         </div>
+
+         <div class="timeline-item" data-type="rituals">
+          <div class="timeline-content">
+            <div class="timeline-date">Weekly</div>
+            <h3 class="timeline-title">📿 Prayer Wheel Ritual</h3>
+            <p class="timeline-description">
+              Weekly ritual of spinning prayer wheels and reciting mantras for spiritual purification and blessings.
+            </p>
+          </div>
+         </div>
+
+         <div class="timeline-item" data-type="rituals">
+          <div class="timeline-content">
+            <div class="timeline-date">Monthly</div>
+            <h3 class="timeline-title">🌙 Full Moon Ceremony</h3>
+            <p class="timeline-description">
+              Special monthly rituals performed during full moon, including extended meditation sessions and community prayers.
+            </p>
+          </div>
+         </div>
+
+         <div class="timeline-item" data-type="rituals">
+          <div class="timeline-content">
+            <div class="timeline-date">Seasonal</div>
+            <h3 class="timeline-title">🌸 Spring Blessing Ritual</h3>
+            <p class="timeline-description">
+              Seasonal ritual marking the beginning of spring, involving purification ceremonies and nature blessings.
             </p>
           </div>
          </div> 

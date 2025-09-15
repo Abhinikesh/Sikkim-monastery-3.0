@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Booking - Monastery360</title>
+    <link rel="icon" type="image/png" href="public/logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/logo.jpg" alt="Monastery360 Logo">
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#featured-monasteries" class="nav-link">Featured Monasteries</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#cultural-calendar" class="nav-link">Cultural Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#explore" class="nav-link">Explore</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#shop" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#gallery" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#plan-visit" class="nav-link">Plan Your Visit</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link login-btn">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link signup-btn">Signup</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Transport Booking</h1>
+            <p class="page-subtitle">Book your transportation to Sikkim's sacred monasteries</p>
+        </div>
+    </section>
+
+    <!-- Transport Booking Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="transport-booking-container">
+                <div class="booking-form-section">
+                    <h2>Book Your Transport</h2>
+                    <p id="selected-monastery" class="selected-destination"></p>
+                    
+                    <form class="transport-form" id="transport-form">
+                        <div class="form-group">
+                            <label for="transport-type">Transport Type</label>
+                            <select id="transport-type" name="transport-type" required>
+                                <option value="">Select Transport Type</option>
+                                <option value="bus">Bus (₹50-100)</option>
+                                <option value="taxi">Taxi (₹300-500)</option>
+                                <option value="shared-cab">Shared Cab (₹150-250)</option>
+                                <option value="bike-rental">Bike Rental (₹200-400/day)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pickup-location">Pickup Location</label>
+                            <input type="text" id="pickup-location" name="pickup-location" placeholder="Enter pickup location" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="travel-date">Travel Date</label>
+                            <input type="date" id="travel-date" name="travel-date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="travel-time">Preferred Time</label>
+                            <select id="travel-time" name="travel-time" required>
+                                <option value="">Select Time</option>
+                                <option value="morning">Morning (6:00 AM - 12:00 PM)</option>
+                                <option value="afternoon">Afternoon (12:00 PM - 6:00 PM)</option>
+                                <option value="evening">Evening (6:00 PM - 9:00 PM)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="passengers">Number of Passengers</label>
+                            <select id="passengers" name="passengers" required>
+                                <option value="">Select Passengers</option>
+                                <option value="1">1 Passenger</option>
+                                <option value="2">2 Passengers</option>
+                                <option value="3">3 Passengers</option>
+                                <option value="4">4 Passengers</option>
+                                <option value="5+">5+ Passengers</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="special-requirements">Special Requirements</label>
+                            <textarea id="special-requirements" name="special-requirements" placeholder="Any special requirements or notes..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-number">Contact Number</label>
+                            <input type="tel" id="contact-number" name="contact-number" placeholder="Enter your contact number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+
+                        <button type="submit" class="book-now-btn">Book Now</button>
+                    </form>
+                </div>
+
+                <div class="transport-info-section">
+                    <h3>Transport Options</h3>
+                    <div class="transport-options-grid">
+                        <div class="transport-option-card">
+                            <i class="fas fa-bus"></i>
+                            <h4>Bus</h4>
+                            <p>Most economical option with regular schedules</p>
+                            <div class="transport-details">
+                                <span class="price">₹50-100</span>
+                                <span class="duration">30-45 min</span>
+                            </div>
+                        </div>
+
+                        <div class="transport-option-card">
+                            <i class="fas fa-taxi"></i>
+                            <h4>Taxi</h4>
+                            <p>Private transport with door-to-door service</p>
+                            <div class="transport-details">
+                                <span class="price">₹300-500</span>
+                                <span class="duration">20-30 min</span>
+                            </div>
+                        </div>
+
+                        <div class="transport-option-card">
+                            <i class="fas fa-car"></i>
+                            <h4>Shared Cab</h4>
+                            <p>Cost-effective option sharing with other travelers</p>
+                            <div class="transport-details">
+                                <span class="price">₹150-250</span>
+                                <span class="duration">25-35 min</span>
+                            </div>
+                        </div>
+
+                        <div class="transport-option-card">
+                            <i class="fas fa-motorcycle"></i>
+                            <h4>Bike Rental</h4>
+                            <p>Flexible option for independent exploration</p>
+                            <div class="transport-details">
+                                <span class="price">₹200-400/day</span>
+                                <span class="duration">15-25 min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="booking-tips">
+                        <h4>Booking Tips</h4>
+                        <ul>
+                            <li>Book in advance during peak season (March-May, October-November)</li>
+                            <li>Confirm your booking 24 hours before travel</li>
+                            <li>Carry valid ID proof for verification</li>
+                            <li>Check weather conditions before booking</li>
+                            <li>Keep emergency contact numbers handy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Monastery360</h3>
+                    <p>Preserving and sharing Sikkim's rich monastic heritage with the world</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" data-action="social-fb"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link" data-action="social-ig"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" data-action="social-twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" data-action="social-yt"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#featured-monasteries">Featured Monasteries</a></li>
+                        <li><a href="index.html#cultural-calendar">Cultural Calendar</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                        <li><a href="index.html#explore">Explore</a></li>
+                        <li><a href="index.html#shop">Shop</a></li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li><a href="index.html#plan-visit">Plan Your Visit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Plan Your Visit</h4>
+                    <ul class="footer-links">
+                        <li><a href="travel-tips.html">Travel Tips</a></li>
+                        <li><a href="cuisine.html">Local Cuisine</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                        <li><a href="transport.html">Transport</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="login.html">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@monastery360.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Gangtok, Sikkim, India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Monastery360. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" id="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script>
+        // Transport booking page specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get monastery from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const monastery = urlParams.get('monastery');
+            
+            if (monastery) {
+                document.getElementById('selected-monastery').textContent = `Destination: ${decodeURIComponent(monastery)}`;
+            }
+
+            // Handle form submission
+            document.getElementById('transport-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const transportType = formData.get('transport-type');
+                const pickupLocation = formData.get('pickup-location');
+                const travelDate = formData.get('travel-date');
+                const travelTime = formData.get('travel-time');
+                const passengers = formData.get('passengers');
+                const contactNumber = formData.get('contact-number');
+                const email = formData.get('email');
+                
+                // Show confirmation modal
+                alert(`Transport booking request submitted!\n\nDetails:\nTransport: ${transportType}\nPickup: ${pickupLocation}\nDate: ${travelDate}\nTime: ${travelTime}\nPassengers: ${passengers}\nContact: ${contactNumber}\nEmail: ${email}\n\nWe will contact you within 24 hours to confirm your booking.`);
+                
+                // Reset form
+                this.reset();
+            });
+
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('travel-date').setAttribute('min', today);
+        });
+    </script>
+</body>
+</html>
